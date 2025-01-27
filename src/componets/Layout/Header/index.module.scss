@@ -1,0 +1,36 @@
+.list {
+  display: flex;
+  gap: 20px;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  height: var(--header-height);
+
+  background-color: var(--header-bg-color);
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav li {
+  list-style-type: none;
+}
+
+.nav .active {
+  color: #c3c5c3;
+  text-decoration: underline;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
