@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./counterSlice";
 import todosReducer from "./todosSlice";
+import authReducer from "./authSlice";
 import { saveStateToLocalStorage } from "../utils/saveStateToLocalStorage";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
@@ -8,6 +9,7 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     todos: todosReducer,
+    auth: authReducer,
   },
 });
 

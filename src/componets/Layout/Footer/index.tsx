@@ -1,12 +1,19 @@
+import { Box } from "@mui/material";
 import styles from "./index.module.scss";
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <p className={styles.content}>
-        © {new Date().getFullYear()} Taras Chirkov
-      </p>
-    </footer>
+    <Box
+      component="footer"
+      sx={{
+        py: 2,
+        textAlign: "center",
+        backgroundColor: "primary.main",
+        color: "white",
+      }}
+    >
+      © {new Date().getFullYear()} Taras Chirkov
+    </Box>
   );
 };
 

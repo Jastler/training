@@ -1,38 +1,81 @@
-import { NavLink } from "react-router-dom";
-import styles from "./index.module.scss";
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AppBar, Toolbar, Button, Typography, Box } from "@mui/material";
+import { useAppDispatch, useAppSelector } from "../../../store";
+import { logoutUser } from "../../../services/authService";
+import { clearUser } from "../../../store/authSlice";
 
 const Header = () => {
+  const dispatch = useAppDispatch();
+  const user = useAppSelector((state) => state.auth.user);
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logoutUser();
+    dispatch(clearUser());
+    navigate("/");
+  };
+
   return (
-    <header className={styles.header}>
-      <nav className={styles.nav}>
-        <ul className={styles.list}>
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? styles.active : "")}
+    <AppBar position="static" color="primary">
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          My Application
+        </Typography>
+
+        {/* Посилання для навігації */}
+        <Box sx={{ display: "flex", gap: 2 }}>
+          <Button
+            color="inherit"
+            component={NavLink}
+            to="/"
+            sx={{
+              "&.active": { textDecoration: "underline" },
+            }}
+          >
+            Home
+          </Button>
+          <Button
+            color="inherit"
+            component={NavLink}
+            to="/counter"
+            sx={{
+              "&.active": { textDecoration: "underline" },
+            }}
+          >
+            Counter
+          </Button>
+          <Button
+            color="inherit"
+            component={NavLink}
+            to="/todo-app"
+            sx={{
+              "&.active": { textDecoration: "underline" },
+            }}
+          >
+            Todo App
+          </Button>
+
+          {/* Login/Logout */}
+          {!user ? (
+            <Button
+              color="inherit"
+              component={NavLink}
+              to="/login"
+              sx={{
+                "&.active": { textDecoration: "underline" },
+              }}
             >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/counter"
-              className={({ isActive }) => (isActive ? styles.active : "")}
-            >
-              Counter
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/todo-app"
-              className={({ isActive }) => (isActive ? styles.active : "")}
-            >
-              Todo App
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
+              Login
+            </Button>
+          ) : (
+            <Button color="inherit" onClick={handleLogout}>
+              Logout
+            </Button>
+          )}
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 

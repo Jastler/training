@@ -1,9 +1,9 @@
 import { FC, useState, KeyboardEvent } from "react";
-
-import styles from "./index.module.scss";
+import { Box, TextField, Button, Paper } from "@mui/material";
+import { useAppDispatch } from "../../../store";
+import { addTodo } from "../../../store/todosSlice";
 
 export type TextInputWithAddButtonProps = {
-  onAdd: (value: string) => void;
   placeholder?: string;
   buttonProps?: {
     buttonText: string;
@@ -11,15 +11,15 @@ export type TextInputWithAddButtonProps = {
 };
 
 export const TextInputWithAddButton: FC<TextInputWithAddButtonProps> = ({
-  onAdd,
-  placeholder = "Add",
+  placeholder = "Add Todo",
   buttonProps = { buttonText: "Add" },
 }) => {
   const [text, setText] = useState("");
+  const dispatch = useAppDispatch();
 
   const submit = () => {
     if (!text.trim()) return;
-    onAdd(text.trim());
+    dispatch(addTodo({ title: text, checked: false }));
     setText("");
   };
 
@@ -30,18 +30,35 @@ export const TextInputWithAddButton: FC<TextInputWithAddButtonProps> = ({
   };
 
   return (
-    <div className={styles.wrapper}>
-      <input
-        type="text"
-        placeholder={placeholder}
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        onKeyDown={handleKeyDown}
-        className={styles.input}
-      />
-      <button onClick={submit} className={styles.button}>
-        {buttonProps.buttonText}
-      </button>
-    </div>
+    <Paper style={{ padding: "16px", marginTop: "15px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 2,
+        }}
+      >
+        <TextField
+          variant="outlined"
+          fullWidth
+          placeholder={placeholder}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
+          size="small"
+        />
+
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={submit}
+          sx={{
+            minWidth: "100px",
+          }}
+        >
+          {buttonProps.buttonText}
+        </Button>
+      </Box>
+    </Paper>
   );
 };

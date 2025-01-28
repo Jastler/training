@@ -1,22 +1,28 @@
+import { useMemo } from "react";
 import { shallowEqual } from "react-redux";
 import { useAppSelector } from "../../store";
 import { TodoItem } from "./TodoItem";
+import { List, Paper } from "@mui/material";
 
 import styles from "./index.module.scss";
 
 export const TodosList = () => {
-  const todoIds = useAppSelector(
-    (state) => state.todos.map((todo) => todo.id),
-    shallowEqual
-  );
+  const todos = useAppSelector((state) => state.todos.todos, shallowEqual);
+  const todoIds = useMemo(() => todos.map((todo) => todo.id), [todos]);
+
+  const loading = useAppSelector((state) => state.todos.loading);
+
+  if (loading) return <p>Loading...</p>;
 
   return (
-    <ol>
-      {todoIds.map((id) => (
-        <li key={id}>
-          <TodoItem id={id} />
-        </li>
-      ))}
-    </ol>
+    <Paper style={{ padding: "16px" }}>
+      <List>
+        {todoIds.map((id) => (
+          <li key={id}>
+            <TodoItem id={id} />
+          </li>
+        ))}
+      </List>
+    </Paper>
   );
 };
