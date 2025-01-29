@@ -33,12 +33,8 @@ export const TodoItem: FC<TodoProps> = memo(({ id }) => {
   };
 
   const submit = async () => {
-    try {
-      await dispatch(updateTodo({ ...todo, title: text || "" })).unwrap();
-      setIsEditing(false);
-    } catch (error) {
-      console.error("Failed to update todo:", error);
-    }
+    dispatch(updateTodo({ ...todo, title: text || "" }));
+    setIsEditing(false);
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -71,7 +67,7 @@ export const TodoItem: FC<TodoProps> = memo(({ id }) => {
               onKeyDown={handleKeyDown}
               size="small"
             />
-            <MainButton text="Save" onClick={submit} />
+            {/* <MainButton text="Save" onClick={submit} /> */}
           </Box>
         </ListItem>
       ) : (
