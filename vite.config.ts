@@ -1,9 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import visualizer from "rollup-plugin-visualizer";
 import path from "path";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    visualizer({
+      open: true, // Автоматично відкривати звіт після білду
+      filename: "bundle-report.html",
+      gzipSize: true,
+      brotliSize: true,
+    }),
+  ],
   resolve: {
     alias: {
       "@store": path.resolve(__dirname, "src/store"),
@@ -17,10 +26,26 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "../dist",
+    outDir: "dist",
+    emptyOutDir: true,
+    rollupOptions: {
+      treeshake: true,
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("react") || id.includes("react-dom"))
+              return "react";
+            if (id.includes("firebase")) return "firebase";
+            if (id.includes("@mui")) return "mui";
+            return "vendor";
+          }
+        },
+      },
+    },
   },
-  publicDir: "./public",
+  publicDir: "public", // Виправлений шлях
   server: {
-    port: 3000, 
+    port: 3000,
+    open: true, // Автоматично відкриває браузер після запуску
   },
 });
