@@ -1,8 +1,7 @@
-import Header from "../Header";
-import Footer from "../Footer";
+import Header from "./Header";
+import Footer from "./Footer";
 
-import styles from "./index.module.scss";
-import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 export type ComponentProps = {
   children: React.ReactNode;

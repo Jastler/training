@@ -1,6 +1,6 @@
 import { FC, KeyboardEvent, memo, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../store";
-import { deleteTodo, updateTodo } from "../../store/todosSlice";
+import { useAppDispatch, useAppSelector } from "../../../store";
+import { deleteTodo, updateTodo } from "../../../store/todosSlice";
 import {
   Box,
   Checkbox,
@@ -10,9 +10,6 @@ import {
   TextField,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-
-import styles from "./index.module.scss";
-import { MainButton } from "../../componets/UI/Buttons/MainButton";
 
 export type TodoProps = { id: string };
 
@@ -48,7 +45,7 @@ export const TodoItem: FC<TodoProps> = memo(({ id }) => {
   };
 
   return (
-    <div className={styles.todo}>
+    <div>
       {isEditing ? (
         <ListItem>
           <Box

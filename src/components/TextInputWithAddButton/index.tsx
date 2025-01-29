@@ -1,7 +1,7 @@
 import { FC, useState, KeyboardEvent } from "react";
 import { Box, TextField, Button, Paper } from "@mui/material";
-import { useAppDispatch } from "../../../store";
-import { addTodo } from "../../../store/todosSlice";
+import { useAppDispatch } from "../../store";
+import { addTodo } from "../../store/todosSlice";
 
 export type TextInputWithAddButtonProps = {
   placeholder?: string;

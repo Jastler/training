@@ -1,5 +1,5 @@
 import React from "react";
-import Counter from "../features/Counter/Counter";
+import Counter from "../../features/counter";
 
 const CounterPage: React.FC = () => {
   return (

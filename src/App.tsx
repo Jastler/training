@@ -1,21 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
-import CounterPage from "./pages/CounterPage";
-import TodoAppPage from "./pages/TodoAppPage";
-
-import { MainLayout } from "./componets/Layout/MainLayout";
-import Home from "./pages/Home";
-
+import { ThemeProvider } from "@emotion/react";
 import { useEffect } from "react";
+
+import TodoAppPage from "./pages/todo-app";
+import { MainLayout } from "./features/layout";
+import Home from "./pages/home";
 import { useAppDispatch } from "./store";
 import { subscribeToAuthChanges } from "./services/authService";
 import { clearUser, setUser } from "./store/authSlice";
-import ProtectedRoute from "./componets/ProtectedRoute";
-import LoginRegister from "./features/LoginRegister/LoginRegister";
 import useAuthListener from "./hooks/useAuthListener";
-import { ThemeProvider } from "@emotion/react";
 import theme from "./styles/theme";
+import ProtectedRoute from "./features/auth/ProtectedRoute";
+import CounterPage from "./pages/counter";
+import { LoginRegisterPage } from "./pages/login";
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -45,7 +43,7 @@ const App: React.FC = () => {
               path="/login"
               element={
                 <ProtectedRoute redirectTo="/">
-                  <LoginRegister />
+                  <LoginRegisterPage />
                 </ProtectedRoute>
               }
             />

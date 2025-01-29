@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Todo } from "../features/TodoApp/types";
+import { Todo } from "../features/todo/types";
 
 import {
   addTodoToFirestore,

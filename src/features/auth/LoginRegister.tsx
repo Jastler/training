@@ -16,7 +16,7 @@ import { loginUser, registerUser } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { getValidationSchema } from "./validations";
-import { getFirebaseErrorMessage } from "../../utils/getFirebaseErrorMessage";
+import { getFirebaseErrorMessage } from "../../utils/firebase/getFirebaseErrorMessage";
 
 type FormValues = {
   email: string;

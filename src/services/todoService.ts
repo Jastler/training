@@ -7,7 +7,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { db } from "../firebaseConfig"; // Імпортуємо Firestore
-import { Todo } from "../features/TodoApp/types";
+import { Todo } from "../features/todo/types";
 import { getAuth } from "firebase/auth";
 
 const todosCollection = collection(db, "todos");

@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import { TextInputWithAddButton } from "../../componets/UI/TextInputWithAddButton";
-import { TodosList } from "./TodosList";
+
+import { TextInputWithAddButton } from "../../components/TextInputWithAddButton";
+import { TodosList } from "./components/TodosList";
 
 const TodoApp = () => {
   return (

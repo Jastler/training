@@ -1,26 +1,46 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "target": "esnext", // Використовуємо сучасний ESNext
+    "lib": ["dom", "dom.iterable", "esnext"], // Підтримка новітніх можливостей браузера
+    "module": "esnext", // Використовуємо сучасну модульну систему
+    "moduleResolution": "node", // Дозволяє працювати з модулями npm
+    "resolveJsonModule": true, // Дозволяє імпортувати JSON
+    "baseUrl": "src", // Базова директорія для імпортів
+    "paths": {
+      // Псевдоніми для зручних імпортів
+      // "@store/*": ["store/*"],
+      // "@components/*": ["components/*"],
+      // "@features/*": ["features/*"],
+      // "@hooks/*": ["hooks/*"],
+      // "@services/*": ["services/*"],
+      // "@styles/*": ["styles/*"],
+      // "@utils/*": ["utils/*"],
+      // "@pages/*": ["pages/*"]
+    },
+
+    // 🔹 Покращення продуктивності та безпеки коду
+    "strict": true, // Увімкнути всі строгі перевірки TypeScript
+    "noImplicitAny": true, // Забороняє неявний `any`
+    "strictNullChecks": true, // Увімкнути перевірку `null` та `undefined`
+    "strictFunctionTypes": true, // Строгий контроль типів функцій
+    "strictPropertyInitialization": true, // Забороняє неініціалізовані змінні
+    "noImplicitThis": true, // Забороняє неявне `this`
+    "alwaysStrict": true, // Додає `use strict` у згенерований код
+
+    // 🔹 Покращення управління типами
+    "skipLibCheck": true, // Пропускає перевірку типів у бібліотеках (швидше)
+    "esModuleInterop": true, // Дозволяє імпортувати CommonJS-модулі
+    "allowSyntheticDefaultImports": true, // Дозволяє `import` без дефолтного експорту
+    "forceConsistentCasingInFileNames": true, // Забороняє зміни регістру в імпортах
+    "noFallthroughCasesInSwitch": true, // Забороняє пропуск `case` без `break`
+
+    // 🔹 Оптимізація компіляції
+    "isolatedModules": true, // Дозволяє використовувати TypeScript з Babel
+    "noEmit": true, // Не генерувати `.js` файли (бо працює тільки з TS)
+
+    // 🔹 JSX (React)
+    "jsx": "react-jsx" // Підтримка нової JSX-трансформації
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"], // Включаємо всі файли в `src/`
+  "exclude": ["node_modules", "dist", "build"] // Виключаємо непотрібні файли
 }

@@ -1,10 +1,8 @@
 import { useMemo } from "react";
 import { shallowEqual } from "react-redux";
-import { useAppSelector } from "../../store";
-import { TodoItem } from "./TodoItem";
 import { List, Paper } from "@mui/material";
-
-import styles from "./index.module.scss";
+import { useAppSelector } from "../../../store";
+import { TodoItem } from "./TodoItem";
 
 export const TodosList = () => {
   const todos = useAppSelector((state) => state.todos.todos, shallowEqual);

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { loadStateFromLocalStorage } from "../utils/loadStateFromLocalStorage";
+import { loadStateFromLocalStorage } from "../utils/storage/loadStateFromLocalStorage";
 
 interface CounterState {
   value: number;
