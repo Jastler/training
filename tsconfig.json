@@ -8,14 +8,16 @@
     "baseUrl": "src", // Базова директорія для імпортів
     "paths": {
       // Псевдоніми для зручних імпортів
-      // "@store/*": ["store/*"],
-      // "@components/*": ["components/*"],
-      // "@features/*": ["features/*"],
-      // "@hooks/*": ["hooks/*"],
-      // "@services/*": ["services/*"],
-      // "@styles/*": ["styles/*"],
-      // "@utils/*": ["utils/*"],
-      // "@pages/*": ["pages/*"]
+      "@store/*": ["store/*"],
+      "@store": ["store/index"],
+      "@components/*": ["components/*"],
+      "@features/*": ["features/*"],
+      "@hooks/*": ["hooks/*"],
+      "@services/*": ["services/*"],
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"],
+      "@pages/*": ["pages/*"],
+      "@pages": ["pages/index"]
     },
 
     // 🔹 Покращення продуктивності та безпеки коду

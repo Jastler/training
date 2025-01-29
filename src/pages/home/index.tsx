@@ -1,7 +1,10 @@
-import { useAppSelector } from "../../store";
+import { useAppSelector } from "@store/index";
+import { useState } from "react";
 
 const Home = () => {
   const user = useAppSelector((state) => state.auth.user);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>

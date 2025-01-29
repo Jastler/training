@@ -30,7 +30,7 @@ export const TextInputWithAddButton: FC<TextInputWithAddButtonProps> = ({
   };
 
   return (
-    <Paper style={{ padding: "16px", marginTop: "15px" }}>
+    <Paper style={{ padding: "16px", margin: "15px 0" }}>
       <Box
         sx={{
           display: "flex",
