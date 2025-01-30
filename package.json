@@ -29,7 +29,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "analyze": "ANALYZE=true yarn build",
-    "preview": "vite preview",
+    "preview": "yarn build && vite preview",
     "deploy": "gh-pages -d dist",
     "test": "vitest",
     "test:watch": "vitest --watch",

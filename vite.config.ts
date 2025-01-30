@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins,
-    base: "/training/",
+    base: "./",
     resolve: {
       alias: {
         "@store": path.resolve(__dirname, "src/store"),
@@ -39,17 +39,6 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       rollupOptions: {
         treeshake: true,
-        output: {
-          manualChunks(id) {
-            if (id.includes("node_modules")) {
-              if (id.includes("react") || id.includes("react-dom"))
-                return "react";
-              if (id.includes("firebase")) return "firebase";
-              if (id.includes("@mui")) return "mui";
-              return "vendor";
-            }
-          },
-        },
       },
     },
     publicDir: "public",
