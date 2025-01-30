@@ -2,6 +2,7 @@
   "name": "todo-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jastler.github.io/training/",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -29,6 +30,7 @@
     "build": "tsc -b && vite build",
     "analyze": "ANALYZE=true yarn build",
     "preview": "vite preview",
+    "deploy": "gh-pages -d dist",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
@@ -60,6 +62,7 @@
     "@types/uuid": "^10.0.0",
     "@types/yup": "^0.32.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "lint-staged": "^15.4.3",

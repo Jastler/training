@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins,
+    base: "/training/",
     resolve: {
       alias: {
         "@store": path.resolve(__dirname, "src/store"),
