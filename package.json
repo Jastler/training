@@ -27,6 +27,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "analyze": "ANALYZE=true yarn build",
     "preview": "vite preview",
     "test": "vitest",
     "test:watch": "vitest --watch",
