@@ -23,3 +23,9 @@ bundle-report.html
 *.njsproj
 *.sln
 *.sw?
+
+# Vite / Rollup / Webpack аналіз бандла
+bundle-report.html
+
+# TypeScript білд інформація
+tsconfig.tsbuildinfo
