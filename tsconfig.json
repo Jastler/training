@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "esnext", // Використовуємо сучасний ESNext
-    "lib": ["dom", "dom.iterable", "esnext"], // Підтримка новітніх можливостей браузера
-    "module": "esnext", // Використовуємо сучасну модульну систему
-    "moduleResolution": "node", // Дозволяє працювати з модулями npm
-    "resolveJsonModule": true, // Дозволяє імпортувати JSON
-    "baseUrl": "src", // Базова директорія для імпортів
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "baseUrl": "src",
     "paths": {
-      // Псевдоніми для зручних імпортів
       "@store/*": ["store/*"],
       "@store": ["store/index"],
       "@components/*": ["components/*"],
@@ -16,33 +16,36 @@
       "@services/*": ["services/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"],
-      "@pages/*": ["pages/*"],
-      "@pages": ["pages/index"]
+      "@pages/*": ["pages/*"]
     },
 
-    // 🔹 Покращення продуктивності та безпеки коду
-    "strict": true, // Увімкнути всі строгі перевірки TypeScript
-    "noImplicitAny": true, // Забороняє неявний `any`
-    "strictNullChecks": true, // Увімкнути перевірку `null` та `undefined`
-    "strictFunctionTypes": true, // Строгий контроль типів функцій
-    "strictPropertyInitialization": true, // Забороняє неініціалізовані змінні
-    "noImplicitThis": true, // Забороняє неявне `this`
-    "alwaysStrict": true, // Додає `use strict` у згенерований код
+    // ✅ Покращення безпеки коду
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
 
-    // 🔹 Покращення управління типами
-    "skipLibCheck": true, // Пропускає перевірку типів у бібліотеках (швидше)
-    "esModuleInterop": true, // Дозволяє імпортувати CommonJS-модулі
-    "allowSyntheticDefaultImports": true, // Дозволяє `import` без дефолтного експорту
-    "forceConsistentCasingInFileNames": true, // Забороняє зміни регістру в імпортах
-    "noFallthroughCasesInSwitch": true, // Забороняє пропуск `case` без `break`
+    // ✅ Оптимізація роботи TypeScript
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
 
-    // 🔹 Оптимізація компіляції
-    "isolatedModules": true, // Дозволяє використовувати TypeScript з Babel
-    "noEmit": true, // Не генерувати `.js` файли (бо працює тільки з TS)
+    // ✅ Покращення продуктивності
+    "isolatedModules": true,
+    "noEmit": true,
 
-    // 🔹 JSX (React)
-    "jsx": "react-jsx" // Підтримка нової JSX-трансформації
+    // ✅ JSX (React)
+    "jsx": "react-jsx",
+
+    // ✅ Додано підтримку тестів
+    "types": ["vitest", "node", "@testing-library/jest-dom"]
   },
-  "include": ["src"], // Включаємо всі файли в `src/`
-  "exclude": ["node_modules", "dist", "build"] // Виключаємо непотрібні файли
+  "include": ["src", "vite.config.ts"],
+  "exclude": ["node_modules", "dist", "build", ".vitest"]
 }

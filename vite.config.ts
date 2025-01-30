@@ -2,12 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import visualizer from "rollup-plugin-visualizer";
 import path from "path";
+import { configDefaults } from "vitest/config";
 
 export default defineConfig({
   plugins: [
     react(),
     visualizer({
-      open: true, // Автоматично відкривати звіт після білду
+      open: true,
       filename: "bundle-report.html",
       gzipSize: true,
       brotliSize: true,
@@ -43,9 +44,17 @@ export default defineConfig({
       },
     },
   },
-  publicDir: "public", // Виправлений шлях
+  publicDir: "public",
   server: {
     port: 3000,
-    open: true, // Автоматично відкриває браузер після запуску
+    open: true,
+    host: true,
+    allowedHosts: ["7d75-79-110-129-250.ngrok-free.app"],
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/test/setup.ts",
+    exclude: [...configDefaults.exclude, "node_modules/**"],
   },
 });
