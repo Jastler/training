@@ -79,7 +79,11 @@ export const TodoItem: FC<TodoProps> = memo(({ id }) => {
             </IconButton>
           }
         >
-          <Checkbox checked={todo.checked} onClick={() => handleToggleTodo()} />
+          <Checkbox
+            sx={{ minWidth: "40px" }}
+            checked={todo.checked}
+            onClick={() => handleToggleTodo()}
+          />
           <ListItemText
             onDoubleClick={() => setIsEditing(true)}
             primary={todo.title}

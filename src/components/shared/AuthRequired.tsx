@@ -1,12 +1,11 @@
 import React from "react";
 import { Box, Paper, Typography, Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@store/index";
 import { openModal } from "@store/modalSlice";
 
-interface AuthRequiredProps {
+type AuthRequiredProps = {
   message?: string;
-}
+};
 
 const AuthRequired: React.FC<AuthRequiredProps> = ({
   message = "To access this page, please log in to your account.",
@@ -14,13 +13,7 @@ const AuthRequired: React.FC<AuthRequiredProps> = ({
   const dispatch = useAppDispatch();
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      minHeight="100vh"
-      px={2}
-    >
+    <Box display="flex" justifyContent="center" alignItems="center" px={2}>
       <Paper
         elevation={3}
         sx={{

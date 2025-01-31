@@ -1,1 +1,6 @@
-export type MODAL_TYPES = "auth" | "confirm" | "example" | "logout";
+export type MODAL_TYPES =
+  | "auth"
+  | "confirm"
+  | "example"
+  | "logout"
+  | "setCounter";

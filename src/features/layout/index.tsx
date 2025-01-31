@@ -20,9 +20,20 @@ export const MainLayout = ({ children }: ComponentProps) => {
       <Container
         sx={{ flexGrow: 1, mt: 2 }}
         maxWidth="sm"
-        style={{ marginTop: "24px" }}
+        style={{ marginTop: "24px", display: "flex" }}
       >
-        {children}
+        <Container
+          maxWidth="md"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+        >
+          {children}
+        </Container>
       </Container>
       <Footer />
     </Box>

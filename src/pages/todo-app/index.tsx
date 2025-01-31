@@ -2,7 +2,8 @@ import React from "react";
 import { useAppSelector } from "@store";
 import TodoApp from "@features/todo";
 import SEO from "@components/SEO";
-import AuthRequired from "@components/shared/Buttons/AuthRequired";
+import AuthRequired from "@components/shared/AuthRequired";
+import DefaultAnimation from "@components/shared/animations/DefaultAnimation";
 
 const TodoAppPage: React.FC = () => {
   const user = useAppSelector((state) => state.auth.user);
@@ -13,13 +14,13 @@ const TodoAppPage: React.FC = () => {
         description="Організуйте свої завдання ефективно!"
         url="https://yourdomain.com/"
       />
-      <div>
+      <DefaultAnimation>
         {user ? (
           <TodoApp />
         ) : (
           <AuthRequired message="Sign in to manage your tasks!" />
         )}
-      </div>
+      </DefaultAnimation>
     </>
   );
 };
