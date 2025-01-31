@@ -16,7 +16,8 @@
       "@services/*": ["services/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@routes/*": ["routes/*"]
     },
 
     // ✅ Покращення безпеки коду

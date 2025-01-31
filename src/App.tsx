@@ -12,6 +12,7 @@ import { clearUser, setUser } from "@store/authSlice";
 import { LoginResponse, subscribeToAuthChanges } from "@services/authService";
 import SEO from "@components/SEO";
 import ModalManager from "@components/modals/ModalManager";
+import { ROUTES } from "./routes";
 
 const Home = lazy(() => import("@pages/home/"));
 const CounterPage = lazy(() => import("@pages/counter"));
@@ -45,10 +46,9 @@ const App = () => {
           <MainLayout>
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/counter" element={<CounterPage />} />
-                <Route path="/todo-app" element={<TodoAppPage />} />
-                <Route path="/login" />
+                <Route path={ROUTES.home} element={<Home />} />
+                <Route path={ROUTES.counter} element={<CounterPage />} />
+                <Route path={ROUTES.todoApp} element={<TodoAppPage />} />
               </Routes>
             </Suspense>
           </MainLayout>

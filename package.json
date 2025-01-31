@@ -30,7 +30,7 @@
     "build": "tsc -b && vite build",
     "analyze": "ANALYZE=true yarn build",
     "preview": "yarn build && vite preview",
-    "deploy": "gh-pages -d dist",
+    "deploy": "GITHUB_PAGES=true vite build && gh-pages -d dist",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",

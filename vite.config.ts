@@ -6,6 +6,7 @@ import { configDefaults } from "vitest/config";
 
 export default defineConfig(({ mode }) => {
   const plugins: any[] = [react()];
+  const isGitHubPages = process.env.GITHUB_PAGES === "true";
 
   if (process.env.ANALYZE === "true") {
     plugins.push(
@@ -20,7 +21,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins,
-    base: "/training/",
+    base: isGitHubPages ? `/${process.env.PROJECT_NAME}/` : "/",
     resolve: {
       alias: {
         "@store": path.resolve(__dirname, "src/store"),
@@ -31,6 +32,7 @@ export default defineConfig(({ mode }) => {
         "@styles": path.resolve(__dirname, "src/styles"),
         "@utils": path.resolve(__dirname, "src/utils"),
         "@pages": path.resolve(__dirname, "src/pages"),
+        "@routes": path.resolve(__dirname, "src/routes"),
       },
     },
     build: {
