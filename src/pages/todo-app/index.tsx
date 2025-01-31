@@ -2,6 +2,7 @@ import React from "react";
 import { useAppSelector } from "@store";
 import TodoApp from "@features/todo";
 import SEO from "@components/SEO";
+import AuthRequired from "@components/shared/Buttons/AuthRequired";
 
 const TodoAppPage: React.FC = () => {
   const user = useAppSelector((state) => state.auth.user);
@@ -12,7 +13,13 @@ const TodoAppPage: React.FC = () => {
         description="Організуйте свої завдання ефективно!"
         url="https://yourdomain.com/"
       />
-      <div>{user ? <TodoApp /> : <div>You must log in</div>}</div>
+      <div>
+        {user ? (
+          <TodoApp />
+        ) : (
+          <AuthRequired message="Sign in to manage your tasks!" />
+        )}
+      </div>
     </>
   );
 };

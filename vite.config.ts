@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins,
-    base: isGitHubPages ? `/${process.env.PROJECT_NAME}/` : "/",
+    base: isGitHubPages ? `/training/` : "/",
     resolve: {
       alias: {
         "@store": path.resolve(__dirname, "src/store"),
