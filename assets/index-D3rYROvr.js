@@ -1,0 +1,1 @@
+import{u as t,r as o,j as e}from"./index-lX5a_RcA.js";const l=()=>{const s=t(r=>r.auth.user);return o.useState(!1),e.jsxs("div",{children:[e.jsx("h1",{children:"Home"}),s?e.jsxs("h1",{children:["Welcome, ",s.email]}):e.jsx("h1",{children:"Please Log In"})]})};export{l as default};
